@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css" />
     <title>{% block title %}My amazing site{% endblock %}</title>
+
+
+
 </head>
 
 <body>
     <nav id="sidebar">
-        {% block sidebar %}
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/blog/">Blog</a></li>
-        </ul>
-        {% endblock %}
+        {% include "nav_bar.html" %}
     </nav>
 
     <div id="content">
-        {% block content %}{% endblock %}
+        {% block content %} {% lorem 30 p%}{% endblock %}
     </div>
 </body>
 </html>
