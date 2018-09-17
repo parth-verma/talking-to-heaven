@@ -276,3 +276,5 @@ $RECYCLE.BIN/
 
 
 # End of https://www.gitignore.io/api/macos,linux,python,django,windows,pycharm+all
+
+/static
