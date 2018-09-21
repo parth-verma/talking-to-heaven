@@ -139,6 +139,24 @@ section h2 {
   font-size: 80%;
   padding: 0.8rem;
 }
+@media (max-width: 420px ) and (min-width: 381px){
+  #mainNav .navbar-brand{
+    font-size: 1em;
+  }
+
+}
+@media (max-width: 380px ) and (min-width: 351px){
+  #mainNav .navbar-brand{
+    font-size: 0.9em;
+  }
+
+}
+@media (max-width: 350px) {
+  #mainNav .navbar-brand{
+    font-size: 0.75em;
+  }
+
+}
 
 @media (min-width: 992px) {
   #mainNav {
