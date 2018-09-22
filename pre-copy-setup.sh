@@ -4,7 +4,7 @@ set -e
 echo "Changing Directory"
 cd /home/parth/sonal_maam
 echo "Installing Node packages"
-npm i
+sudo -u parth npm i
 echo "Configuring git remotes"
 git remote add origin https://github.com/party98/talking-to-heaven.git || \
 git remote set-url origin https://github.com/party98/talking-to-heaven.git
