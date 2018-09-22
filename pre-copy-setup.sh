@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
 set -e
-echo "Setting User"
-su - parth
 echo "Changing Directory"
 cd /home/parth/sonal_maam
 echo "Installing Node packages"
