@@ -7,9 +7,9 @@ before_install:
 - eval "$(ssh-agent -s)"
 - sudo chmod 400 id_rsa
 - ssh-add id_rsa
-- scp pre-copy-setup.sh travis@$HOST:/home/parth/sonal_maam/
-- scp package.json travis@$HOST:/home/parth/sonal_maam/
-- ssh travis@$HOST bash /home/parth/sonal_maam/pre-copy.sh
+- scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null pre-copy-setup.sh travis@$HOST:/home/parth/sonal_maam/
+- scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null package.json travis@$HOST:/home/parth/sonal_maam/
+- ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null travis@$HOST bash /home/parth/sonal_maam/pre-copy.sh
 env:
   global:
     secure: EObxATxlAKT3K//F8w/XujzrMrs+ZMqGvCdtqjwhRjdTe9N6TDJwvsQEMFXI6Bg/M4h1z9+2yrvzkN0jPYBoqtmQ1wjyQBev2Gl0wyWoqNuhkVf0EcE+jt5n0gq72zCpXAraLmaIiIVx0NC+HwTtTCWW97NP6KhKtfpoYc7ShoFJB8k6sldOTvO+q3zWF1Jdfw2Mi0vQwHuHzY9SZQQCeScYOdxAGBON/Yn9V+KN4S40IJJVW23VmdyRE6dgAqe7U9Shu19FAncW4SCUtn2KjAShzv3XY0M32PmWfhgn4SBWkYIvIPjT7kxDKebw4P2MXZyqANArWMSs9R2k1oBzM6H2p/2OE9J0KWWVazv1JwMOP2QGTDfjHae4a0JEILSSltOxJCrIX50xh9jHgflxeHDKViZr52DzWyKQ+zoI+JNKzMrPKqTIkUR9u72dk2XiVkSpUXTT3tCRVZvHd7cFklDEKNH9Dn/uhe+/abbXIHBi+Wd/MeI2WIiRTz8wOJGqofrR8jyCZTzXE8uurD8OyDj+XA6xNjbERA8Y6zKIp0w2NCpfwwM/cWwMF/fQmNYeL83wN/E1VfLWY0NcqVx720VfTt+2N+h7yK6HIcGXByQA6kyL+GsM6iS4JSBVrSE0nS0p24Vi1pI2pb+WSw4/Vkg11LXXMHEh+ANYoF1RbU8=
