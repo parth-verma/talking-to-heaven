@@ -10,7 +10,7 @@ install:
 script:
 - scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null pre-copy-setup.sh travis@$HOST:/home/parth/sonal_maam
 - scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null package.json travis@$HOST:/home/parth/sonal_maam
-- ssh -t -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null travis@$HOST "sudo -H -u parth bash /home/parth/sonal_maam/pre-copy-setup.sh"
+- ssh -t -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null travis@$HOST "su -c \"bash /home/parth/sonal_maam/pre-copy-setup.sh\" - parth"
 - ssh -t -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null travis@$HOST "sudo -H -u parth bash /home/parth/sonal_maam/post-copy-setup.sh"
 env:
   global:
