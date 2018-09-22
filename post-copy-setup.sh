@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 set -e
-su - parth
 cd /home/parth/sonal_maam
 source ./env/bin/activate
 pip install -r requirements.txt
