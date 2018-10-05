@@ -1,5 +1,7 @@
 {% load static %}
 <link href="{% static "css/counter.css" %}" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{% static "js/cart.js" %}"></script>
+<script src="{% static "js/counter.js" %}"></script>
 {% for reading in readings %}
     <div class="portfolio-modal mfp-hide" id="portfolio-modal-{{ reading.id }}">
       <div class="portfolio-modal-dialog bg-white">
@@ -15,11 +17,11 @@
               <p class="mb-5">{{ reading.description }}</p>
                 <div class="qty mb-5">
                     <span class="count-label">Quantity:</span>
-                    <i class="fas fa-minus-circle fa-2x minus "></i>
-                    <span class="count" id="count">1</span>
-                    <i class="fas fa-plus-circle fa-2x plus"></i>
+                    <i class="fas fa-minus-circle fa-2x minus " onclick="return decrementCounter({{ reading.id }});"></i>
+                    <span class="count" id="count-{{ reading.id }}">1</span>
+                    <i class="fas fa-plus-circle fa-2x plus" onclick="return incrementCounter({{ reading.id }});"></i>
                 </div>
-                <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#">
+                <a class="btn btn-primary btn-lg rounded-pill portfolio-modal-dismiss" href="#" onclick="return addToCart({{ reading.id }},'{{ reading.name }}',{{ reading.price }});">
                     <i class="fa fa-close"></i>
                     Add to Cart
                 </a>
