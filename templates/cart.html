@@ -27,11 +27,14 @@
     <!-- Custom styles for this template -->
     {% load static %}
     <link href="{% static "css/base.css" %}" rel="stylesheet" type="text/css">
-<link href="{% static "css/counter.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "css/counter.css" %}" rel="stylesheet" type="text/css">
 
-<script src="{% static "js/counter.js" %}"></script>
+    <script src="{% static "js/counter.js" %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script type="text/javascript" src="{% static "js/cart.js" %}"></script>
+
+
 </head>
 <body id="page-top">
 
@@ -54,30 +57,24 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row" style="width: 1px"><img src="/media/readings/cabin.png" style="width: 100px"></th>
-                <td class="text-left lead">Mark</td>
-                <td>$16</td>
-                <td class="qty"><div class="qty mb-5">
-                    <i class="fas fa-minus-circle minus " onclick="return decrementCounter(1);"></i>
-                    <span  id="count-1">1</span>
-                    <i class="fas fa-plus-circle plus" onclick="return incrementCounter(1);"></i>
-                </div></td>
-                <td><i class="fa fa-trash-alt"></i></td>
-                <td id="total-1"></td>
-            </tr>
-            <tr>
-                <th scope="row" style="width: 1px"><img src="/media/readings/cabin.png" style="width: 100px"></th>
-                <td class="text-left lead">Mark</td>
-                <td>$16</td>
-                <td class="qty"><div class="qty mb-5">
-                    <i class="fas fa-minus-circle minus " onclick="return decrementCounter(1) && updateTotal();"></i>
-                    <span  id="count-1">1</span>
-                    <i class="fas fa-plus-circle plus" onclick="return incrementCounter(1) && updateTotal();"></i>
-                </div></td>
-                <td><i class="fa fa-trash-alt" aria-hidden="true"></td>
-                <td id="total-2"></td>
-            </tr>
+            {% for item in  cart_items %}
+                <tr id="item-{{ item.id }}">
+                    <th scope="row" style="width: 1px"><img src="{{ item.image_url }}" style="width: 100px"></th>
+                    <td class="text-left lead text-uppercase">{{ item.name }}</td>
+                    <td>${{ item.price }}</td>
+                    <td class="qty">
+                        <div class="qty mb-5">
+                            <i class="fas fa-minus-circle minus "
+                               onclick="return decrementCartItem({{ item.id }});"></i>
+                            <span id="count-{{ item.id }}">{{ item.quantity }}</span>
+                            <i class="fas fa-plus-circle plus" onclick="return incrementCartItem({{ item.id }});"></i>
+                        </div>
+                    </td>
+                    <td><i class="fa fa-trash-alt" onclick="return removeFromCart({{ item.id }})"></i></td>
+                    <td id="total-{{ item.id }}">${% widthratio item.price 1 item.quantity %}</td>
+                </tr>
+            {% endfor %}
+
             </tbody>
 
         </table>
@@ -102,8 +99,12 @@
 
 <!-- Contact Form JavaScript -->
 <script src="{% static "js/freelancer.js" %}"></script>
-<script type="text/javascript" src="{% static "js/cart.js" %}"></script>
 
+<script>
+    if (performance.navigation.type == 1) {
+        $(document).ready(cartSubmit);
+    }
+</script>
 </body>
 
 </html>
