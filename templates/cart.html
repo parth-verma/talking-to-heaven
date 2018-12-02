@@ -50,9 +50,9 @@
             <tr>
                 <th scope="col" style="width: 1px"></th>
                 <th scope="col"></th>
-                <th scope="col">Price</th>
+                <th scope="col" class="d-none d-md-block">Price</th>
                 <th scope="col">Quantity</th>
-                <th scope="col"></th>
+                <th scope="col" class="d-none d-md-block"></th>
                 <th scope="col">Total</th>
             </tr>
             </thead>
@@ -60,8 +60,11 @@
             {% for item in  cart_items %}
                 <tr id="item-{{ item.id }}">
                     <th scope="row" style="width: 1px"><img src="{{ item.image_url }}" style="width: 100px"></th>
-                    <td class="text-left lead text-uppercase">{{ item.name }}</td>
-                    <td>${{ item.price }}</td>
+                    <td class="text-left lead text-uppercase">{{ item.name }}
+                    <div class="d-md-none">
+                        ${{ item.price }}
+                    </div></td>
+                    <td class="d-none d-md-block">${{ item.price }}</td>
                     <td class="qty">
                         <div class="qty mb-5">
                             <i class="fas fa-minus-circle minus "

@@ -110,9 +110,6 @@ section h2 {
   font-family: 'Montserrat';
 }
 
-#mainNav .navbar-brand {
-  color: #fff;
-}
 
 #mainNav .navbar-nav {
   margin-top: 1rem;
@@ -156,6 +153,9 @@ section h2 {
     font-size: 0.75em;
   }
 
+}
+#mainNav .navbar-brand {
+  color: #fff;
 }
 
 @media (min-width: 992px) {
